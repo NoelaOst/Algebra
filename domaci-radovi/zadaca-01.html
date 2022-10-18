@@ -16,7 +16,6 @@
         color: hsl(0, 0%, 80%);
         background-color: hsl(0, 0%, 13%);
         min-height: 100vh;
-        min-width: 100vh;
         overflow-x: hidden;
       }
       h1,
@@ -32,12 +31,14 @@
       >Vrati se na početnu</a
     >
     <h1>Red panda</h1>
-    <h2>Professional CV</h2>
-    <img
-      style="border-radius: 100%"
-      src="../images/pexels-photo-146232.jpeg"
-      alt="Red panda"
-    />
+    <h2><i>Curriculum Vitae</i></h2>
+    <div style="display: flex; justify-items: center">
+      <img
+        style="border-radius: 100%; width: 300px"
+        src="../images/pexels-photo-146232.jpeg"
+        alt="Red panda"
+      />
+    </div>
     <!-- About -->
     <h2>Tko sam ja?</h2>
     <ul>
@@ -50,8 +51,8 @@
     <h2>Osnovne informacije</h2>
     <table border="1" style="text-align: left">
       <colgroup>
-        <col style="width: 200px" />
-        <col style="width: 300px" />
+        <col style="width: 150px" />
+        <col style="width: 250px" />
       </colgroup>
       <thead>
         <tr>
@@ -80,30 +81,29 @@
     </table>
     <!-- Edukacija -->
     <h2><del>Edukacija</del></h2>
-    <p>Nije potrebna, rođen pametan</p>
+    <p>životna škola</p>
     <!-- Vještine -->
     <h2>Vještine</h2>
     <ol>
       <li>skakanje s grane na granu</li>
-      <li>trganje bambusa</li>
+      <li>trganje bambusa zubima</li>
     </ol>
     <h2>Fun facts</h2>
     <ul>
       <li>Crvena panda je prva dobila ime "panda"</li>
       <li>Nije povezana s velikim pandama</li>
       <li>
-        Crvena panda ima više imena, jedno od kojih je
+        Crvena panda ima više imena, jedno od kojih je i
         <i><strong>Firefox</strong></i
         ><img
+          style="padding-inline: 10px"
           src="../images/icons8-firefox-24.png"
           alt="Firefox browser logo"
         />
       </li>
     </ul>
-    <img
-      style="position: relative"
-      src="../images/red-panda-firefox.jpg"
-      alt="Red panda"
-    />
+    <div style="display: flex; justify-items: center">
+      <img src="../images/red-panda-firefox.jpg" alt="Red panda" />
+    </div>
   </body>
 </html>
