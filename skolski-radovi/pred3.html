@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forme - Predavanje 3</title>
+  </head>
+  <body>
+    <form action="#" method="get" enctype="text/plain" autocomplete="on">
+      <label for="name">Ime </label>
+      <input type="text" name="ime" id="ime" />
+      <input type="color" value="#00FF00" />
+
+      <p>Odaberite spol</p>
+      <label for="spolMusko">Muško</label>
+      <input type="radio" name="spol" id="spolMusko" value="musko" /> <br />
+      <label for="spolZensko">Žensko</label>
+      <input type="radio" name="spol" id="spolZensko" value="zensko" /> <br />
+      <label for="svemirac">Svemirac</label>
+      <input type="radio" name="spol" id="svemirac" /> <br />
+      <br />
+      <p>Što vozite</p>
+      <label for="auto">Auto</label>
+      <input type="checkbox" name="vozilo" value="auto" id="auto" /> <br />
+      <label for="bicikl">Bicikl</label>
+      <input type="checkbox" name="vozilo" value="bicikl" id="bicikl" /> <br />
+      <br />
+      <label for="boja">Odaberite boju</label>
+      <select name="boja" id="boja">
+        <optgroup label="b/w">
+          <option value="bijela">bijela</option>
+          <option value="crna">crna</option>
+        </optgroup>
+        <optgroup label="ostale boje">
+          <option value="crvena">crvena</option>
+          <option value="plava">plava</option>
+          <option selected value="zelena">zelena</option>
+        </optgroup>
+      </select>
+      <br />
+      <br />
+      <label for="tvoj-clanak"></label>
+      <textarea name="text" id="tvoj-clanak" cols="30" rows="10">
+        Tvoj tekst...
+      </textarea>
+
+      <input type="submit" value="Pošalji" />
+      <br />
+      <br />
+      <fieldset>
+        <legend>Mjesto boravišta</legend>
+        <label for="grad">Odaberite grad u kojem trenutno živite</label>
+        <input list="gradovi" name="grad" id="grad" />
+        <datalist id="gradovi">
+          <option value="Šibenik">Šibenik</option>
+          <option value="Zagreb">Zagreb</option>
+          <option value="Zadar">Zadar</option>
+          <br />
+        </datalist>
+        <input type="submit" value="Predaj" />
+      </fieldset>
+    </form>
+    <br />
+    <form
+      action=""
+      method="get"
+      oninput="rezultat.value=(parseInt(faktor1.value)*parseInt(faktor2.value))+'kuna'"
+    >
+      <p>Isprobaj kalkulator cijene sati</p>
+      <input type="text" name="faktor1" id="faktor1" /> radnih sati *
+      <input type="text" name="faktor2" id="faktor2" /> cijena sata =
+      <output name="rezultat" for="faktor1 faktor2"> </output>
+    </form>
+  </body>
+</html>
