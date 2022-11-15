@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domaci rad CSS 1</title>
+    <style>
+      body {
+        height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        color: #000000;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: #000;
+        color: #cccccc;
+        margin: 0;
+        padding: 4rem;
+      }
+      .header-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-block: 1rem;
+      }
+      .header-wrapper > p {
+        font-size: 1.25rem;
+        padding: 0;
+      }
+      #avatar {
+        border-radius: 100%;
+      }
+      main {
+        font-size: 1.25rem;
+        margin: 1rem;
+        padding: 1rem;
+      }
+      h2 {
+        text-decoration: underline;
+      }
+      @media (min-width: 768px) {
+        header {
+          flex-direction: row;
+        }
+        .header-wrapper {
+          display: flex;
+          justify-content: start;
+          align-items: flex-start;
+        }
+        main {
+          margin: 2rem;
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../../index.html">Vrati se na početnu</a>
+    <header>
+      <div class="header-wrapper">
+        <h1>Noela Oštrić</h1>
+        <p>Frontend developer</p>
+        <p>Zagreb, Croatia</p>
+      </div>
+      <div>
+        <img id="avatar" src="./avatar.png" alt="profil photo" />
+      </div>
+    </header>
+    <main>
+      <section>
+        <h2>About</h2>
+        <p>
+          Hi! My name is Noela and I am political science graduate who took a
+          drastic career change to frontend development and web design in 2022.
+          I loaded up on online learning before enrolling to Algebra university
+          program to learn additional skills that I couldn't learn as a
+          self-taught designer/developer.
+        </p>
+      </section>
+      <section>
+        <h2>Skillset</h2>
+        <div class="wrapper">
+          <div>HTML5 & CSS3</div>
+          <div>Tailwind CSS</div>
+          <div>Javascript</div>
+          <div>Figma & Adobe Photoshop</div>
+        </div>
+      </section>
+      <section>
+        <h2>Languages</h2>
+        <p>English C1</p>
+        <p>Spanish B1</p>
+      </section>
+      <section>
+        <h2>Trivia</h2>
+        <p>
+          On my free time, you can catch me working on new projects and adding
+          to my skillset.
+        </p>
+        <p>
+          If I'm not doing that, well then I'm probably dancing Bachata or
+          Kizomba :)
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
