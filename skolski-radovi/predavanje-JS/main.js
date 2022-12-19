@@ -92,3 +92,67 @@ JSON.stringify(obj);
 
 // može biti i suprotno, odnosno jsonov string se može vratiti u objekt pomoću JSON.parse() metode, kao argument se dodaje jsonov string koji izgleda slično kao objekt ali nije nego je pod navodnicima zato je suprotna metoda zvana stringify
 JSON.parse()
+
+
+// ZADATAK objekti
+
+let auto = {
+    boja: 'crvena',
+    godina: '2019',
+    marka: 'Mercedes',
+    kilometri: '12000',
+    gume: {
+        tip: 'zimske',
+        marka: 'Sava',
+    },
+    trenutnaBrzina: 0,
+    upaljen: false,
+    klimaTemp = 18,
+    upali: function(){
+        this.upaljen = true;
+
+    },
+    ubrzaj: function(brzina){
+        if (this.upaljen === true) { //ovo se moze i skraceno napipsati samo if (this.upaljen){...} to ce odma podrazumijevati da je ta varijabla onakva kakva je kad smo je prozvali odnosno u ovom slucaju je False
+        this.trenutnaBrzina = brzina;
+        } else {
+            console.log("Auto nije upaljen");
+            // ili return "auto nije upaljen"
+        }
+        return this.trenutnaBrzina;
+
+    },
+    zakoci: function(jako){
+        if (jako === true){
+            this.trenutnaBrzina -= 10;
+        } else {
+            this.trenutnaBrzina -=5;
+        }
+
+    },
+    klima: function(temperatura){
+        this.klimaTemp = temperatura;
+        return this.klimaTemp; //ovako zapravo mijenjamo objekt pomocu funkcije, doslovno tempratura ce se s 18 ako stavimo kao argument 22, promijeniti na 22
+
+    },
+};
+
+// uvijek treba dodati THIS kad se pozivaju varijable u objektu jer ce JS traziti najprije varijable izvan objekta sto je krivo...i onda ce ju sam stvoriti ili ce pokazati error
+
+auto.ubrzaj(50);
+auto.zakoci(malo);
+auto.upali();
+
+console.log('Moj auto je iz ' + auto.godina + 'i prešao je '+ auto.kilometri + ' kilometara');
+console.log(`Moj auto je ${auto.boja} boje i prešao je ${auto.kilometri} kilometara`);
+
+JSON.stringify(auto);
+
+
+
+
+// for in loop
+
+for (let x in auto){ //ovo će ispiati sva imena propertija tj. key od svih propertija i sprema ih u let x
+    console.log(x);
+}
