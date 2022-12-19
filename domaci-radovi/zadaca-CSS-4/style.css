@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  color: red;
+}
+
+body {
+  width: 100%;
+  height: 50vh;
+}
+
+.main-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.main-div > .item-div {
+  width: 20%;
+  height: 5%;
+  background-color: green;
+  border: 3px solid red;
+  text-align: center;
+}
+.main-div > .item-div:hover {
+  background-color: blue;
+}
+.main-divS:nth-child(3) {
+  order: 1;
+}
+
+.main-div-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+.main-div-2 > div {
+  width: 15%;
+  height: 5%;
+  border: 2px solid orange;
+  margin: 2%;
+}
+.main-div-2 > div:hover {
+  background-color: blue;
+}/*# sourceMappingURL=style.css.map */
