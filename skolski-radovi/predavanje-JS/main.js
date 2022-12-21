@@ -156,3 +156,81 @@ JSON.stringify(auto);
 for (let x in auto){ //ovo će ispiati sva imena propertija tj. key od svih propertija i sprema ih u let x
     console.log(x);
 }
+
+
+// ZADATAK
+let dobro = "1234567890"
+let lose = "334476"
+let test = "1234fjhgtozu6789"
+
+//funkcija vraća true ako su svi stringovi jeedinstveni, inače false
+
+let jedinstveniZnakovi = function(password){
+    if(!password) {
+        return true;
+    } if (password.length === 1){
+        return true
+    }
+    // //provjeravnje
+    // var char = password[0];
+    // for(var i = 1; i < password.length; i++){
+    //     if (password[i] === char ){
+    //         return false;
+    //     }
+    // } //ovo ne radi jer provjerava samo broj na indeksu 0 sa ostalima, a što ako se broj na indeksu 2 ponavlja s ostalima
+   
+    for (var i = 0; i < password.length; i++){
+        var znak = password[i];
+        for (var j = i+1; j < password.length; j++) {
+            var znakDrugi = password[j];
+            if (znak === znakDrugi){
+                return false;
+            }
+        }
+    }
+    
+}
+
+// rjesenje 2 - puno krace
+
+var r2 = function(password){
+    for (var i = 0; i < password.length; i++){
+        if (password.lastIndexOf(password[i]) !== i){
+            return false;
+        }
+    }
+    return true
+}
+
+//rjesenje 3
+
+var r3 = function(password){
+    var znakovi = password.split('').sort();
+
+    for (var i = 1; i < znakovi.length; i++){
+        if (znakovi[i] === znakovi[i-1]){
+            return false;
+        }
+    }
+    return true;
+}
+//sort metoda ce razvrstati iste znakove jedan pored drugoga, a zatim cemo usporediti  znak na indeksu jedan sa prijašnjim znakom 
+
+// rjesenje 4
+pomocu objekta
+
+// rjesenje 5
+
+var r5 = function(password){
+    var set = new Set();
+
+    for (var i = 0; i<password.length; i++){
+        var znak = password[i];
+        if (set.has(znak)){
+            return false;
+        }
+        set.add(znak);
+    }
+
+    return true;
+}
