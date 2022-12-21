@@ -107,7 +107,7 @@ let auto = {
     },
     trenutnaBrzina: 0,
     upaljen: false,
-    klimaTemp = 18,
+    klimaTemp: 18,
     upali: function(){
         this.upaljen = true;
 
@@ -216,8 +216,7 @@ var r3 = function(password){
 }
 //sort metoda ce razvrstati iste znakove jedan pored drugoga, a zatim cemo usporediti  znak na indeksu jedan sa prijašnjim znakom 
 
-// rjesenje 4
-pomocu objekta
+// rjesenje 4- pomocu objekta NISAM PISALA
 
 // rjesenje 5
 
@@ -234,3 +233,46 @@ var r5 = function(password){
 
     return true;
 }
+
+// rjesenje 6
+
+var r6 = function(password){
+    var result = new Set(password).size === password.length;
+    return result;
+} //set je matematicki set koji po defaultu mora imati razlicite brojeve u sebi, ne dopusta da budu isti, pa kada usporedima parvi password length sa size-om seta on mora biti isti, samo ako je isti znaci da nas password ne ponavlja znakove
+
+
+// ZADATAK - kako da upotrijebimo barem jednu znamenku i barem jedan spec znak i barem jedno veliko slovo
+
+var znamenke = ['1','2','3','4','5'];
+var znakovi = ['!','.',',','-'];
+function valjaPass(pass){
+    if(!pass || pass.length < 6){
+        return false;
+    }
+
+    var znamenkeOk = false;
+    for (var z in znamenke){
+        if(pass.indexOf(z) >= 0){
+            znamenkeOk = true;
+            break;
+        }
+    }
+    var znakoviOk = false;
+    for (var s in znakovi){
+        if(pass.indexOf(s) >= 0){
+            znakoviOk = true;
+            break;
+        }
+    }
+    var velikoSlovoOk = false
+    for(var znak in pass){
+        if(znak === znak.toUpperCase()){ //ovo znaci da cemo usporediti znak s njegovoim velikim slovom, pa ako je isto to znaci da je nas znak veliko slovo i to je dovoljno
+            velikoSlovoOk = true;
+            break;
+        }
+    }
+
+}
+
+//OVO SVE JE BOLJE S REGEXOM
