@@ -276,3 +276,6 @@ function valjaPass(pass){
 }
 
 //OVO SVE JE BOLJE S REGEXOM
+
+
+

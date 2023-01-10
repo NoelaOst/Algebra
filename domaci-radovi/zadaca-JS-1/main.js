@@ -1,0 +1,1 @@
+// Napisati petlju koja će u konzolu ispisivati sve brojeve od 6 do 178 (uključivo) koji su djeljivi sa 7, ali ne i sa 3. Npr. 21 ne, 28 da.
