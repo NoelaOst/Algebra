@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API- Vrijeme</title>
+    <link rel="stylesheet" href="./vrijeme-style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Usporedi vrijeme u željenom gradu</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="input-wrapper">
+          <div>
+            <input class="city-input" type="text" placeholder="Unesi grad..." />
+            <button class="search-btn">Traži</button>
+          </div>
+          <div>
+            <h2 style="text-transform: capitalize" class="city"></h2>
+            <h3 class="temperature"></h3>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <div>
+            <input
+              class="city-input-2"
+              type="text"
+              placeholder="Unesi grad..."
+            />
+            <button class="search-btn-2">Traži</button>
+          </div>
+          <div>
+            <h2 style="text-transform: capitalize" class="city-2"></h2>
+            <h3 class="temperature-2"></h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./vrijeme-main.js"></script>
+  </body>
+</html>
