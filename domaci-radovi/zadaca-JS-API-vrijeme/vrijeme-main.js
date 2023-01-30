@@ -41,12 +41,26 @@ const handleSearch = () => {
 
     request.send();
 }
+searchBtn.addEventListener("click", handleSearch);
 
-const handleInputKey = (e) => {
+// PRIMJER GDJE KORISTIMO ISTU FUNKCIJU ZA DRUGACIJI EVENT , TJ. TIPKU ENTER, ALI NA DUŽI NAČIN, TAKO DA PRVO DEFINIRAMO ŠTO RADI TA FUNKCIJA PA JU ONDA UPISUJEMO U ADDEVENTLISTENER
+// const handleInputKey = (e) => {
+//     if (e.key === "Enter") {
+//         handleSearch();
+//     }
+// }
+
+// input.addEventListener("keyup", handleInputKey);
+
+
+
+
+//OVO JE DRUGA VERZIJA ALI KRAĆA
+
+input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         handleSearch();
     }
-}
+})
 
-searchBtn.addEventListener("click", handleSearch);
-input.addEventListener("keyup", handleInputKey);
+//RADII
