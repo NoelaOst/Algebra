@@ -6,7 +6,7 @@ const handleSearchChange = () => {
     if (userInput.length < 3) {
         return
     }
-    const url = `https://itunes.apple.com/search?term=${userInput}&entity=musicArtist`;
+    const url = `https://itunes.apple.com/search?term=${userInput}&entity=song`;
     const request = new XMLHttpRequest();
     request.open('GET', url, true);
 
