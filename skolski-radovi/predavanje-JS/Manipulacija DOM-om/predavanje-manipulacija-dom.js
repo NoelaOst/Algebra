@@ -13,7 +13,7 @@ function handleHideBtn(){
 }
 function handlePlusBtn(){
     count++;
-    counterP.innerText = count;
+    // counterP.innerText = count;
     
 }
 function handleMinusBtn(){

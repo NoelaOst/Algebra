@@ -64,3 +64,9 @@ input.addEventListener("keypress", (e) => {
 })
 
 //RADII
+
+// input.addEventListener("keypress", e => {
+//     if (e.key === "Enter") {
+//         handleSearch();
+//     }
+// })

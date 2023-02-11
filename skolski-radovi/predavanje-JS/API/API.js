@@ -94,9 +94,3 @@ input.addEventListener("keyup", handleInputKey);
 
 
 
-//MOJA VJEŽBA 
-
-const request = new XMLHttpRequest();
-
-request.open('GET', 'urlkojiželim takozvani endpoint');
-request.send();
