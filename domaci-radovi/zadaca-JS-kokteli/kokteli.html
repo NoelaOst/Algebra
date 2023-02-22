@@ -186,3 +186,275 @@
     </script>
   </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kokteli</title>
+    <style>
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        margin: 0%;
+        padding: 0%;
+      }
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        margin: 2rem;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+      }
+      #main-h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border: 3px solid black;
+        border-radius: 10px;
+        width: 30vw;
+        padding: 0.5rem;
+        margin-block: 1rem;
+      }
+      h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin-block: 1rem;
+      }
+      .main-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        flex-direction: column;
+      }
+      .search-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 3rem;
+      }
+      #search-btn {
+        outline: none;
+        background-color: black;
+        color: white;
+        border-radius: 40px;
+        padding: 1rem;
+        margin-inline: 1rem;
+        font-weight: 600;
+      }
+      #search-btn:active {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+      }
+      #input {
+        padding: 1rem;
+        border-radius: 40px;
+      }
+      #cocktail-list {
+        margin-block: 2rem;
+        margin-left: 5rem;
+      }
+      #cocktail-list > * {
+        margin-block: 1rem;
+        cursor: pointer;
+      }
+      #cocktail-list > *:hover {
+        color: rgba(0, 0, 0, 0.514);
+      }
+      #response-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+      }
+      #response-wrapper > * {
+        width: 100%;
+      }
+      #bla-bla {
+        margin-right: 5rem;
+      }
+      #bla-bla:last-child {
+        margin-block: 1rem;
+      }
+      #ingredient-list > *,
+      #instructions > *,
+      #bla-bla > * {
+        padding-block: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="main-h1">Cocktail Recipes</h1>
+    </header>
+    <div class="main-wrapper">
+      <div class="search-wrapper">
+        <input id="input" type="text" placeholder="Enter cocktail's name" />
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+    <div id="response-wrapper">
+      <ul id="cocktail-list">
+        <!-- we are going to render cocktail list here -->
+      </ul>
+      <div>
+        <div id="bla-bla"></div>
+        <ol id="ingredient-list"></ol>
+        <div id="instructions"></div>
+      </div>
+    </div>
+    <script>
+      const responseWrapper = document.querySelector("#response-wrapper");
+      const input = document.querySelector("#input");
+      const searchBtn = document.querySelector("#search-btn");
+      const cocktailList = document.querySelector("#cocktail-list");
+      const blaDiv = document.querySelector("#bla-bla");
+      const ingredientList = document.querySelector("#ingredient-list");
+      const instructions = document.querySelector("#instructions");
+
+      const handleSearch = () => {
+        // reset list by removing cocktailsList children
+        // undefined === false
+        while (cocktailList.lastElementChild) {
+          cocktailList.removeChild(cocktailList.lastElementChild);
+        }
+        while (blaDiv.lastElementChild) {
+          blaDiv.removeChild(blaDiv.lastElementChild);
+        }
+        while (ingredientList.lastElementChild) {
+          ingredientList.removeChild(ingredientList.lastElementChild);
+        }
+        while (instructions.lastElementChild) {
+          instructions.removeChild(instructions.lastElementChild);
+        }
+
+        // call api to get cocktails
+        const xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`
+        );
+        xhr.responseType = "json";
+        xhr.send();
+
+        // create list elements and assign drinks values
+        xhr.onload = () => {
+          const response = xhr.response.drinks;
+          console.log(response);
+          // const cocktailsData = response.drinks.map(drink => drink.strDrink)
+
+          response.forEach((cocktail) => {
+            const cocktailEntry = document.createElement("li"); // <li></li>
+
+            cocktailEntry.innerText = cocktail.strDrink; // <li>Mojito</li>
+
+            cocktailList.appendChild(cocktailEntry);
+            /*
+            <ul>
+              <li>Mojito</li>
+              <li>SuperMojito</li>
+            </ul>
+            */
+
+            cocktailEntry.addEventListener("click", () => {
+              // remove previously added elements
+              while (blaDiv.lastElementChild) {
+                blaDiv.removeChild(blaDiv.lastElementChild);
+              }
+              while (ingredientList.lastElementChild) {
+                ingredientList.removeChild(ingredientList.lastElementChild);
+              }
+              while (instructions.lastElementChild) {
+                instructions.removeChild(instructions.lastElementChild);
+              }
+
+              const cocktailDetails = document.createElement("h1"); // <p></p>
+              // cocktailDetails.appendChild(
+              //   document.createTextNode(cocktail.strDrink)
+              cocktailDetails.innerText = cocktail.strDrink;
+              // ); // <p>Mojito</p>
+
+              const cocktailImage = document.createElement("img"); // <img />
+              cocktailImage.src = cocktail.strDrinkThumb; // <img src="www.image.com" />
+
+              const cocktailIngredientList = document.createElement("h2");
+              cocktailIngredientList.innerText = "Ingredients:";
+
+              const cocktailIngredient1 = document.createElement("li");
+              cocktailIngredient1.innerText = cocktail.strIngredient1;
+
+              const cocktailIngredient2 = document.createElement("li");
+              cocktailIngredient2.innerText = cocktail.strIngredient2;
+
+              const cocktailIngredient3 = document.createElement("li");
+              cocktailIngredient3.innerText = cocktail.strIngredient3;
+
+              const cocktailIngredient4 = document.createElement("li");
+              cocktailIngredient4.innerText = cocktail.strIngredient4;
+
+              const cocktailIngredient5 = document.createElement("li");
+              cocktailIngredient5.innerText = cocktail.strIngredient5;
+
+              const cocktailIngredient6 = document.createElement("li");
+              cocktailIngredient6.innerText = cocktail.strIngredient6;
+
+              blaDiv.appendChild(cocktailDetails);
+              blaDiv.appendChild(cocktailImage);
+              blaDiv.appendChild(cocktailIngredientList);
+              ingredientList.appendChild(cocktailIngredient1);
+              ingredientList.appendChild(cocktailIngredient2);
+              if (cocktail.strIngredient3) {
+                cocktailIngredient3.innerText = cocktail.strIngredient3;
+                ingredientList.appendChild(cocktailIngredient3);
+              }
+
+              if (cocktail.strIngredient4) {
+                cocktailIngredient4.innerText = cocktail.strIngredient4;
+                ingredientList.appendChild(cocktailIngredient4);
+              }
+              if (cocktail.strIngredient5) {
+                cocktailIngredient5.innerText = cocktail.strIngredient5;
+                ingredientList.appendChild(cocktailIngredient5);
+              }
+              if (cocktail.strIngredient6) {
+                cocktailIngredient6.innerText = cocktail.strIngredient6;
+                ingredientList.appendChild(cocktailIngredient5);
+              }
+
+              /*
+              <div>
+                <p>Mojito</p>
+                <img src="www.image.com" />
+                <p>Tequila</p>
+              </div>
+              */
+
+              const cocktailInstructionTitle = document.createElement("h2");
+              cocktailInstructionTitle.innerText = "Instructions:";
+
+              const cocktailInstructions = document.createElement("p");
+              cocktailInstructions.innerText = cocktail.strInstructions;
+
+              instructions.appendChild(cocktailInstructionTitle);
+              instructions.appendChild(cocktailInstructions);
+            });
+            input.value = " ";
+          });
+        };
+      };
+      searchBtn.addEventListener("click", () => handleSearch());
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          handleSearch();
+        }
+      });
+    </script>
+  </body>
+</html>
