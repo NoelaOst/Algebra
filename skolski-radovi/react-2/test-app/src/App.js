@@ -1,10 +1,17 @@
+import ShowText from "./COmponents/ShowText"
+import ShowClassText from "./COmponents/ShowClassText"
+import ArrowFunc from "./COmponents/ArrowFunc"
+import "./main.css"
 
 function App() {
-  return (
-      <div>
-        App.js
-      </div>
-
+  return ( 
+  <div>
+    <p className="plavo">
+    <ShowText />
+    <ShowClassText/>
+    <ArrowFunc pozdrav="dobro jutro"/>
+    </p>
+  </div> 
   );
 }
 
