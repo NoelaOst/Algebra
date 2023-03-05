@@ -15,7 +15,7 @@
       }
       body {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        margin: 2rem;
+        margin: 1rem;
       }
       header {
         display: flex;
@@ -99,6 +99,11 @@
       #instructions > *,
       #bla-bla > * {
         padding-block: 0.5rem;
+      }
+      @media (max-width: 768px) {
+        #response-wrapper {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -217,6 +222,12 @@
               const cocktailIngredient6 = document.createElement("li");
               cocktailIngredient6.innerText = cocktail.strIngredient6;
 
+              const cocktailInstructionTitle = document.createElement("h2");
+              cocktailInstructionTitle.innerText = "Instructions:";
+
+              const cocktailInstructions = document.createElement("p");
+              cocktailInstructions.innerText = cocktail.strInstructions;
+
               blaDiv.appendChild(cocktailDetails);
               blaDiv.appendChild(cocktailImage);
               blaDiv.appendChild(cocktailIngredientList);
@@ -239,21 +250,6 @@
                 cocktailIngredient6.innerText = cocktail.strIngredient6;
                 ingredientList.appendChild(cocktailIngredient5);
               }
-
-              /*
-              <div>
-                <p>Mojito</p>
-                <img src="www.image.com" />
-                <p>Tequila</p>
-              </div>
-              */
-
-              const cocktailInstructionTitle = document.createElement("h2");
-              cocktailInstructionTitle.innerText = "Instructions:";
-
-              const cocktailInstructions = document.createElement("p");
-              cocktailInstructions.innerText = cocktail.strInstructions;
-
               instructions.appendChild(cocktailInstructionTitle);
               instructions.appendChild(cocktailInstructions);
             });
