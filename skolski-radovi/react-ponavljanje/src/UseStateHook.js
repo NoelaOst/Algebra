@@ -19,6 +19,8 @@ const handleClick = () => {
         
     }
 
+const [pokemon, setPokemon] = useState("Pikachu");
+
 return(
         <div>
             <h1>{name} is {age}. He comes from {city}</h1>
@@ -32,6 +34,10 @@ return(
                 )
             })}
             </ol>
+            <hr></hr>
+            <h1>{pokemon}</h1>
+            <button onClick={()=>setPokemon("Charmander")} > Change Pokemon</button>
+            <button onClick={()=>setPokemon("Charmander")} > Change Pokemon</button>
           
         </div>
     )
